@@ -470,10 +470,10 @@ if(window.ResizeObserver){
   ro.observe(document.querySelector('.toolbar'));
 }
 
-const GROUPS = [['daily','\u65e5\u5e38\u573a\u666f'],['sing','\u6b22\u5531\u7ae5\u8c23'],
-  ['abc','ABC \u51b0\u6dc7\u6dcb'],['busy','\u5c0f\u624b\u4e50\u7ffb\u5929'],
-  ['gyuri','\u53e4\u529b\u5c0f\u8d85\u4eba'],['hora','Hor\u00e1\u010dek'],
-  ['pull','\u62bd\u62c9\u7ae5\u8c23'],['gk','GK']];
+const GROUPS = [['daily','\u65e5\u5e38\u573a\u666f'],['gk','GK'],
+  ['sing','\u6b22\u5531\u7ae5\u8c23'],['busy','\u5c0f\u624b\u4e50\u7ffb\u5929'],
+  ['abc','ABC \u51b0\u6dc7\u6dcb'],['gyuri','\u53e4\u529b\u5c0f\u8d85\u4eba'],
+  ['hora','Hor\u00e1\u010dek'],['pull','\u62bd\u62c9\u7ae5\u8c23']];
 const q = document.getElementById('q');
 let group = 'daily';
 try{ const g = localStorage.getItem('pce-group');
