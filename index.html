@@ -58,6 +58,12 @@ body{margin:0;background:var(--paper);color:var(--ink);
   padding:.6rem .75rem;appearance:none}
 .search::placeholder{color:var(--faint)}
 .search:focus-visible{outline:none;border-color:var(--blue);background:var(--paper)}
+.total{flex:none;font-size:.78rem;color:var(--faint);opacity:.55;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  min-width:1.4rem;text-align:right;padding-right:.1rem;
+  transition:opacity .2s,color .2s}
+.vocab{min-width:2.1rem;padding-right:.15rem}
+.vocab::before{content:"\00B7";padding:0 .3rem 0 .1rem;opacity:.5}
 .gear{flex:none;font:inherit;font-size:.85rem;color:var(--muted);cursor:pointer;
   background:var(--surface);border:1px solid transparent;border-radius:.5rem;
   padding:.6rem .8rem;list-style:none}
@@ -194,7 +200,7 @@ footer a{color:var(--blue)}
 <div class="toolbar"><div class="wrap">
 <div class="trow">
   <input id="q" class="search" type="search" placeholder="&#25628;&#21477;&#23376;&#65288;&#20013;&#33521;&#25991;&#37117;&#33021;&#25628;&#65289;" aria-label="&#25628;&#32034;&#21477;&#23376;">
-  <button type="button" id="gear" class="gear" aria-expanded="false" aria-controls="settings">&#35774;&#32622;</button>
+  <span id="total" class="total" aria-hidden="true"></span><span id="vocab" class="total vocab" aria-hidden="true"></span><button type="button" id="gear" class="gear" aria-expanded="false" aria-controls="settings">&#35774;&#32622;</button>
 </div>
 <div class="modebar">
   <div class="seg" role="group" aria-label="&#26174;&#31034;&#27169;&#24335;">
@@ -338,6 +344,8 @@ let done = new Set();
 try{ done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]')); }catch(e){}
 function saveDone(){ try{ localStorage.setItem(DONE_KEY, JSON.stringify([...done])); }catch(e){} }
 function paintCounts(){
+  const t = document.getElementById('total');
+  if(t) t.textContent = document.querySelectorAll('ol.rows>li.done').length;
   document.querySelectorAll('section').forEach(sec => {
     const c = sec.querySelector('.cnt');
     if(!c) return;
@@ -347,11 +355,15 @@ function paintCounts(){
   });
 }
 function applyDone(){
+  const live = new Set();
   document.querySelectorAll('ol.rows>li').forEach(li => {
     const on = done.has(li.dataset.k);
+    if(on) live.add(li.dataset.k);
     li.classList.toggle('done', on);
     li.querySelector('.ok').setAttribute('aria-pressed', String(on));
   });
+  // drop marks whose sentence no longer exists (content was rewritten)
+  if(live.size !== done.size){ done = live; saveDone(); }
   paintCounts();
 }
 applyDone();
@@ -500,6 +512,17 @@ function setGroup(g){
 
 q.addEventListener('input', () => { stopAll(); render(); });
 buildNav(); render();
+// unique English words across every sentence
+(() => {
+  const el = document.getElementById('vocab');
+  if(!el) return;
+  const seen = new Set();
+  document.querySelectorAll('.row .en').forEach(n => {
+    const m = n.textContent.toLowerCase().replace(/\u2019/g, "'").match(/[a-z][a-z'-]*/g);
+    if(m) m.forEach(w => seen.add(w));
+  });
+  el.textContent = seen.size;
+})();
 const cntEl = document.querySelector('.count');
 if(cntEl) cntEl.textContent = '\u5171 ' + document.querySelectorAll('.row').length + ' \u53e5\u3002';
 
