@@ -58,12 +58,6 @@ body{margin:0;background:var(--paper);color:var(--ink);
   padding:.6rem .75rem;appearance:none}
 .search::placeholder{color:var(--faint)}
 .search:focus-visible{outline:none;border-color:var(--blue);background:var(--paper)}
-.total{flex:none;font-size:.78rem;color:var(--faint);opacity:.55;
-  font-variant-numeric:tabular-nums;letter-spacing:.02em;
-  min-width:1.4rem;text-align:right;padding-right:.1rem;
-  transition:opacity .2s,color .2s}
-.vocab{min-width:2.1rem;padding-right:.15rem}
-.vocab::before{content:"\00B7";padding:0 .3rem 0 .1rem;opacity:.5}
 .gear{flex:none;font:inherit;font-size:.85rem;color:var(--muted);cursor:pointer;
   background:var(--surface);border:1px solid transparent;border-radius:.5rem;
   padding:.6rem .8rem;list-style:none}
@@ -182,7 +176,8 @@ section.tale .zh{color:var(--faint)}
 .divider{margin:3.6rem 0 -1rem;padding-top:1.7rem;border-top:2px solid var(--rule);font-family:var(--serif);font-size:1.02rem;color:var(--muted);letter-spacing:.02em}
 section.book .shead{border-bottom-color:var(--blue)}
 .empty{padding:2.5rem 0;color:var(--faint);font-size:.9rem;text-align:center}
-footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
+.stats{font-variant-numeric:tabular-nums}
+footer{text-align:center;margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
   color:var(--faint);font-size:.78rem;line-height:1.7}
 footer a{color:var(--blue)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -200,7 +195,7 @@ footer a{color:var(--blue)}
 <div class="toolbar"><div class="wrap">
 <div class="trow">
   <input id="q" class="search" type="search" placeholder="&#25628;&#21477;&#23376;&#65288;&#20013;&#33521;&#25991;&#37117;&#33021;&#25628;&#65289;" aria-label="&#25628;&#32034;&#21477;&#23376;">
-  <span id="total" class="total" aria-hidden="true"></span><span id="vocab" class="total vocab" aria-hidden="true"></span><button type="button" id="gear" class="gear" aria-expanded="false" aria-controls="settings">&#35774;&#32622;</button>
+  <button type="button" id="gear" class="gear" aria-expanded="false" aria-controls="settings">&#35774;&#32622;</button>
 </div>
 <div class="modebar">
   <div class="seg" role="group" aria-label="&#26174;&#31034;&#27169;&#24335;">
@@ -279,8 +274,7 @@ footer a{color:var(--blue)}
 <section id="u159" class="book" data-g="pull"><div class="shead"><span class="snum">&#128214;</span><h2 class="stitle">&#23567;&#23567;&#24656;&#40857;</h2><span class="sen">Incy Wincy Dinosaur</span><span class="cnt"></span><button class="play">&#36830;&#35835;</button></div><p class="snote">&#25913;&#32534;&#33258; Incy Wincy Spider&#65288;&#20844;&#29256;&#21407;&#35789;&#65289;</p><ol class="rows"><li data-k="u159|Incy Wincy Spider climbed up the waterspout"><button class="row" data-say="Incy Wincy Spider climbed up the waterspout"><span class="n">1</span><span class="zh">&#23567;&#34584;&#34523;&#29228;&#19978;&#20102;&#27700;&#31649;</span><span class="en">Incy Wincy Spider climbed up the waterspout</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Down came the rain and washed the spider out"><button class="row" data-say="Down came the rain and washed the spider out"><span class="n">2</span><span class="zh">&#22823;&#38632;&#19979;&#26469;&#25226;&#23427;&#20914;&#36208;&#21862;</span><span class="en">Down came the rain and washed the spider out</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Out came the sunshine and dried up all the rain"><button class="row" data-say="Out came the sunshine and dried up all the rain"><span class="n">3</span><span class="zh">&#22826;&#38451;&#20986;&#26469;&#26194;&#24178;&#20102;&#38632;&#27700;</span><span class="en">Out came the sunshine and dried up all the rain</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|And Incy Wincy Spider climbed up the spout again"><button class="row" data-say="And Incy Wincy Spider climbed up the spout again"><span class="n">4</span><span class="zh">&#23567;&#34584;&#34523;&#21448;&#29228;&#19978;&#20102;&#27700;&#31649;</span><span class="en">And Incy Wincy Spider climbed up the spout again</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Pull the tab and see!"><button class="row" data-say="Pull the tab and see!"><span class="n">5</span><span class="zh">&#25289;&#19968;&#19979;&#30475;&#30475;&#65281;</span><span class="en">Pull the tab and see!</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Who&#x27;s climbing up?"><button class="row" data-say="Who&#x27;s climbing up?"><span class="n">6</span><span class="zh">&#35841;&#22312;&#24448;&#19978;&#29228;&#65311;</span><span class="en">Who's climbing up?</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Down came the rain!"><button class="row" data-say="Down came the rain!"><span class="n">7</span><span class="zh">&#19979;&#38632;&#21862;&#65281;</span><span class="en">Down came the rain!</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Here comes the sun."><button class="row" data-say="Here comes the sun."><span class="n">8</span><span class="zh">&#22826;&#38451;&#20986;&#26469;&#20102;&#12290;</span><span class="en">Here comes the sun.</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u159|Let&#x27;s do it again."><button class="row" data-say="Let&#x27;s do it again."><span class="n">9</span><span class="zh">&#25105;&#20204;&#20877;&#26469;&#19968;&#27425;&#12290;</span><span class="en">Let's do it again.</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li></ol></section>
 <section id="u160" class="book" data-g="pull"><div class="shead"><span class="snum">&#128214;</span><h2 class="stitle">&#20844;&#20132;&#36710;&#19978;&#30340;&#29275;</h2><span class="sen">The Cows on the Bus</span><span class="cnt"></span><button class="play">&#36830;&#35835;</button></div><p class="snote">&#25913;&#32534;&#33258; The Wheels on the Bus&#65288;&#20844;&#29256;&#21407;&#35789;&#65289;</p><ol class="rows"><li data-k="u160|The wheels on the bus go round and round"><button class="row" data-say="The wheels on the bus go round and round"><span class="n">1</span><span class="zh">&#20844;&#20132;&#36710;&#30340;&#36718;&#23376;&#36716;&#21568;&#36716;</span><span class="en">The wheels on the bus go round and round</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|All through the town"><button class="row" data-say="All through the town"><span class="n">2</span><span class="zh">&#31359;&#36807;&#25972;&#20010;&#22478;&#38215;</span><span class="en">All through the town</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|The cows on the bus go moo, moo, moo"><button class="row" data-say="The cows on the bus go moo, moo, moo"><span class="n">3</span><span class="zh">&#36710;&#19978;&#30340;&#29275;&#21726;&#21726;&#21483;</span><span class="en">The cows on the bus go moo, moo, moo</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|The doors on the bus go open and shut"><button class="row" data-say="The doors on the bus go open and shut"><span class="n">4</span><span class="zh">&#36710;&#38376;&#24320;&#20102;&#21448;&#20851;&#19978;</span><span class="en">The doors on the bus go open and shut</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|What sound does the cow make? Moo!"><button class="row" data-say="What sound does the cow make? Moo!"><span class="n">5</span><span class="zh">&#29275;&#24590;&#20040;&#21483;&#65311;&#21726;&#65281;</span><span class="en">What sound does the cow make? Moo!</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|Who else is on the bus?"><button class="row" data-say="Who else is on the bus?"><span class="n">6</span><span class="zh">&#36710;&#19978;&#36824;&#26377;&#35841;&#21568;&#65311;</span><span class="en">Who else is on the bus?</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|Pull the tab!"><button class="row" data-say="Pull the tab!"><span class="n">7</span><span class="zh">&#25289;&#19968;&#19979;&#25289;&#26438;&#65281;</span><span class="en">Pull the tab!</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li><li data-k="u160|Round and round we go."><button class="row" data-say="Round and round we go."><span class="n">8</span><span class="zh">&#25105;&#20204;&#36716;&#21568;&#36716;&#12290;</span><span class="en">Round and round we go.</span></button><button class="ok" type="button" aria-pressed="false" aria-label="&#26631;&#35760;&#24050;&#20250;" title="&#26631;&#35760;&#24050;&#20250;">&#10003;</button></li></ol></section>
 <p id="empty" class="empty" style="display:none">&#27809;&#26377;&#25214;&#21040;&#21305;&#37197;&#30340;&#21477;&#23376;&#12290;</p>
-<footer>&#20869;&#23481;&#26469;&#33258;&#39134;&#20070;&#25991;&#26723;&#12298;&#20146;&#23376;&#26085;&#24120;&#33521;&#35821;&#12299;&#12290;&#20013;&#25991;&#21482;&#26159;&#32473;&#22823;&#20154;&#23545;&#29031;&#30340;&#65292;&#36319;&#23453;&#23453;&#35828;&#30340;&#26102;&#20505;&#19981;&#29992;&#36880;&#21477;&#32763;&#35793;&#12290;<br>
-&#19968;&#27425;&#22266;&#23450; 3&#8211;5 &#21477;&#65292;&#29992;&#20004;&#21608;&#25104;&#20026;&#32908;&#32905;&#35760;&#24518;&#65292;&#20877;&#21152;&#26032;&#30340;&#12290;</footer>
+<footer><span id="stats" class="stats"></span></footer>
 </main>
 
 <script>const DATA_TOTAL=252;
@@ -343,9 +337,25 @@ const DONE_KEY = 'pce-done';
 let done = new Set();
 try{ done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]')); }catch(e){}
 function saveDone(){ try{ localStorage.setItem(DONE_KEY, JSON.stringify([...done])); }catch(e){} }
+let TOT_ROWS = null, TOT_VOCAB = null;
+function computeTotals(){
+  if(TOT_VOCAB !== null) return;
+  const seen = new Set();
+  document.querySelectorAll('.row .en').forEach(n => {
+    const m = n.textContent.toLowerCase().replace(/\u2019/g, "'").match(/[a-z][a-z'-]*/g);
+    if(m) m.forEach(w => seen.add(w));
+  });
+  TOT_VOCAB = seen.size;
+  TOT_ROWS = document.querySelectorAll('.row').length;
+}
 function paintCounts(){
-  const t = document.getElementById('total');
-  if(t) t.textContent = document.querySelectorAll('ol.rows>li.done').length;
+  computeTotals();
+  const st = document.getElementById('stats');
+  if(st){
+    const n = document.querySelectorAll('ol.rows>li.done').length;
+    st.textContent = '\u5df2\u52fe\u9009 ' + n + ' \u53e5 \u00b7 \u5171 '
+      + TOT_ROWS + ' \u53e5 \u00b7 \u5171 ' + TOT_VOCAB + ' \u8bcd';
+  }
   document.querySelectorAll('section').forEach(sec => {
     const c = sec.querySelector('.cnt');
     if(!c) return;
@@ -512,17 +522,6 @@ function setGroup(g){
 
 q.addEventListener('input', () => { stopAll(); render(); });
 buildNav(); render();
-// unique English words across every sentence
-(() => {
-  const el = document.getElementById('vocab');
-  if(!el) return;
-  const seen = new Set();
-  document.querySelectorAll('.row .en').forEach(n => {
-    const m = n.textContent.toLowerCase().replace(/\u2019/g, "'").match(/[a-z][a-z'-]*/g);
-    if(m) m.forEach(w => seen.add(w));
-  });
-  el.textContent = seen.size;
-})();
 const cntEl = document.querySelector('.count');
 if(cntEl) cntEl.textContent = '\u5171 ' + document.querySelectorAll('.row').length + ' \u53e5\u3002';
 
