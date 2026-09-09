@@ -22,7 +22,9 @@
 
 **海尼曼 GK 70 册**：一级分区 GK，二级分 GK 1-10 … GK 61-70；每段是一条条编号句子，序号即册号，不再每册一个标题。
 
-**按绘本背（51 册，每册一个单元）**：欢唱童谣 Sing Along 12 册、ABC 冰淇淋 Alphabet Ice Cream 4 册、小手乐翻天 Busy Fingers 15 册、古力小超人 Gyuri the Superhero 12 册、Petr Horáček 纸板书 6 册、花瓣抽拉童谣 2 册。
+**Sing Along 欢唱童谣**：6 首歌各一个单元，内容来自随书家长手册（FOR MOM AND DAD）的课堂对白原文与官方中文。
+
+**按绘本背**：ABC 冰淇淋 Alphabet Ice Cream 4 册、小手乐翻天 Busy Fingers 15 册、古力小超人 Gyuri the Superhero 12 册、Petr Horáček 纸板书 6 册、花瓣抽拉童谣 2 册。
 
 导航是两级的：上面一行选分区（日常场景 / 各套书），下面一行是该分区的分册，点一下跳过去。搜索时跨分区全局搜。
 
